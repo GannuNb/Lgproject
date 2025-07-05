@@ -1,0 +1,35 @@
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero {
+    width: 100%;
+    margin-top: 0%;
+  }
+  
+  .hero-image img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .about-content {
+    width: 100%; /* Set full width */
+    padding: 20px;
+    max-width:85% !important;
+  }
+  
+ 
+  .abtimg{
+    height: 450px;
+    width: 100%;
+  }
+
+  @media (min-width:300px) and (max-width:600px) {
+    .abtimg{
+      height: 250px;
+      width: 100%;
+    }
+    
+  }

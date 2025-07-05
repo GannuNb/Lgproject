@@ -1,0 +1,213 @@
+/* ---------------- General Styles ---------------- */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a.no-link-style {
+  text-decoration: none;
+  color: inherit;
+}
+
+.about-text {
+  text-align: justify;
+  font-size: 1rem;
+}
+
+.products {
+  margin-top: 6% !important;
+}
+
+.products-heading {
+  font-size: 2.3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  color: #333;
+  font-family: 'Playfair Display', serif;
+}
+
+.products-heading::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #333;
+  margin: 10px auto 0;
+}
+
+/* ---------------- Hero Section ---------------- */
+
+.custom-background {
+  height: 60vh;
+  background-image: url('./images/inn1.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  color: white;
+  text-align: left;
+}
+
+.custom-background h1,
+.custom-background h2 {
+  font-weight: 700;
+}
+
+.custom-background p {
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .custom-background {
+    height: auto;
+    padding: 3rem 1rem;
+    text-align: center;
+  }
+
+  .custom-background h1,
+  .custom-background h2 {
+    font-size: 2rem;
+  }
+
+  .custom-background p {
+    font-size: 1rem;
+  }
+}
+
+/* ---------------- Products Section ---------------- */
+
+.products .col-md-4 {
+  margin-bottom: 2rem;
+}
+
+.products img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.products img:hover {
+  transform: scale(1.05);
+}
+
+.products h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.products p {
+  font-size: 0.95rem;
+  color: #555;
+  padding: 0 10px;
+}
+
+@media (max-width: 768px) {
+  .products-heading {
+    font-size: 1.8rem;
+  }
+
+  .products p {
+    padding: 0;
+  }
+}
+
+/* ---------------- About Section ---------------- */
+
+@media (max-width: 768px) {
+  .about-text {
+    font-size: 0.95rem;
+  }
+
+  .container .row > div {
+    margin-bottom: 1rem;
+  }
+}
+
+/* ---------------- Carousel Section ---------------- */
+
+.fade-carousel-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+}
+
+.slide {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.slide.active {
+  opacity: 1;
+  position: relative;
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 10px;
+  user-select: none;
+  pointer-events: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  padding: 0.5rem 1rem;
+  font-size: 2rem;
+  color: #333;
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  transform: translateY(-50%);
+  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+
+.carousel-btn:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}
+
+@media (max-width: 576px) {
+  .carousel-image {
+    max-height: 200px;
+  }
+
+  .carousel-btn {
+    font-size: 1.5rem;
+    padding: 0.4rem 0.7rem;
+  }
+}
+
+/* ---------------- Hide Old Marquee (if needed) ---------------- */
+
+.scrolling-container,
+.scrolling-content {
+  display: none !important;
+}

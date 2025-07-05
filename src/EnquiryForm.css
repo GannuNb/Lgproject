@@ -1,0 +1,99 @@
+/* Make sure the body and html take up full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-size: 14px; /* Reduce base font size */
+  }
+  
+  /* Full screen container */
+  .container-fluid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8f9fa; /* Optional: background color */
+    padding: 30px; /* Increased padding */
+  }
+  
+  /* Form container to make the form look centered and aligned */
+  form {
+    padding: 40px; /* Increased padding */
+    border-radius: 12px; /* Increased border radius */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+    width: 100%;
+    max-width: 1170px; /* Larger max width for the form */
+  }
+  
+  /* Hero image styling */
+  .hero-image {
+    width: 105%;
+    margin-bottom: 30px; /* Increased margin-bottom */
+  }
+  
+  .hero-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Smaller font for form labels */
+  .form-label {
+    font-size: 1rem; /* Smaller font for labels */
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    font-size: 1rem; /* Smaller font inside inputs */
+    padding: 15px; /* Larger padding inside the inputs */
+    height: 60px; /* Increased height for input fields */
+    border-radius: 8px; /* Rounded corners for inputs */
+  }
+  
+  /* Larger submit button */
+  button[type="submit"] {
+    font-size: 1.125rem; /* Slightly smaller font for the button */
+    padding: 15px; /* Larger padding */
+    height: 60px; /* Increased button height */
+    border-radius: 8px; /* Rounded button corners */
+  }
+  
+  /* Error messages */
+  .invalid-feedback {
+    font-size: 1rem; /* Smaller error message font */
+    font-weight: bold;
+  }
+  
+  /* Mobile responsive adjustments */
+  @media (max-width: 768px) {
+    /* For smaller screens, reduce padding to maintain space */
+    form {
+      padding: 20px;
+      width: 100%;
+    }
+  
+    /* Increase input font size for mobile */
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      font-size: 1rem;
+      padding: 12px;
+      height: 50px;
+    }
+  
+    /* Increase button font size for mobile */
+    button[type="submit"] {
+      font-size: 1rem;
+      padding: 12px;
+      height: 50px;
+    }
+  }
+
+  @media (min-width:300px) and (max-width:600px) {
+    .abtimg{
+      height: 250px;
+      width: 100%;
+    }
+    
+  }
+  
