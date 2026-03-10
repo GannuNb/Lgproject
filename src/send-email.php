@@ -1,40 +1,95 @@
 <?php
-// Enable error display for debugging (disable in production)
+
+// show errors during debugging
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Get data from React frontend
-$data = json_decode(file_get_contents("php://input"), true);
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json");
 
-// Extract and sanitize input
-$name = trim($data['name']);
-$email = trim($data['email']);
-$subject = trim($data['subject']);
-$message = trim($data['message']);
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-if (!$name || !$email || !$subject || !$message) {
-    http_response_code(400);
-    echo json_encode(['status' => 'error', 'message' => 'All fields are required.']);
+require 'phpmailer/src/Exception.php';
+require 'phpmailer/src/PHPMailer.php';
+require 'phpmailer/src/SMTP.php';
+
+// allow only POST
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    echo json_encode(["status"=>"error","message"=>"Invalid request"]);
     exit;
 }
 
-// Set email parameters
-$to = "support@lgindustry.in"; // Admin's email
-$headers = "From: $name <$email>\r\n";
-$headers .= "Reply-To: $email\r\n";
-$headers .= "Content-Type: text/plain; charset=UTF-8";
+// read JSON body from React
+$data = json_decode(file_get_contents("php://input"), true);
 
-$body = "You have received a new enquiry from the website:\n\n";
-$body .= "Name: $name\n";
-$body .= "Email: $email\n";
-$body .= "Subject: $subject\n";
-$body .= "Message:\n$message\n";
+// sanitize inputs
+$name = htmlspecialchars(trim($data['name'] ?? ''));
+$email = filter_var(trim($data['email'] ?? ''), FILTER_SANITIZE_EMAIL);
+$subject = htmlspecialchars(trim($data['subject'] ?? ''));
+$message = htmlspecialchars(trim($data['message'] ?? ''));
 
-// Send email
-if (mail($to, $subject, $body, $headers)) {
-    echo json_encode(['status' => 'success', 'message' => 'Email sent successfully.']);
-} else {
-    http_response_code(500);
-    echo json_encode(['status' => 'error', 'message' => 'Failed to send email.']);
+// validate
+if (!$name || !$email || !$subject || !$message) {
+    echo json_encode([
+        "status"=>"error",
+        "message"=>"All fields are required"
+    ]);
+    exit;
 }
-?>
+
+try {
+
+    $mail = new PHPMailer(true);
+
+    // SMTP configuration
+    $mail->isSMTP();
+    $mail->Host = "smtp.hostinger.com";
+    $mail->SMTPAuth = true;
+
+    $mail->Username = "support@lgindustry.in";
+    $mail->Password = "Lgindustry@123";
+
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+    $mail->Port = 465;
+
+    // sender
+    $mail->setFrom("support@lgindustry.in","LG Industry Website");
+
+    // admin receiver
+    $mail->addAddress("support@lgindustry.in");
+
+    // reply to customer
+    $mail->addReplyTo($email,$name);
+
+    // email content
+    $mail->isHTML(false);
+
+    $mail->Subject = $subject;
+
+    $mail->Body =
+"You have received a new enquiry from the website.
+
+Name: $name
+Email: $email
+Subject: $subject
+
+Message:
+$message
+";
+
+    $mail->send();
+
+    echo json_encode([
+        "status"=>"success",
+        "message"=>"Email sent successfully"
+    ]);
+
+} catch (Exception $e) {
+
+    echo json_encode([
+        "status"=>"error",
+        "message"=>$mail->ErrorInfo
+    ]);
+
+}
