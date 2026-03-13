@@ -36,7 +36,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item mx-2">
-              <Link to="/About" className="nav-link nav-hover" onClick={() => setIsNavbarCollapsed(true)}>
+              <Link to="/about" className="nav-link nav-hover" onClick={() => setIsNavbarCollapsed(true)}>
                 About us
               </Link>
             </li>
@@ -53,29 +53,29 @@ const Navbar = () => {
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <Link className="dropdown-item" to="/CrumRubber" onClick={() => setIsNavbarCollapsed(true)}>
+                  <Link className="dropdown-item" to="/crumrubber" onClick={() => setIsNavbarCollapsed(true)}>
                     Crumb Rubber
                   </Link>
                 </li>
                 <li>
-                  <Link className="dropdown-item" to="/Epdm" onClick={() => setIsNavbarCollapsed(true)}>
+                  <Link className="dropdown-item" to="/epdm" onClick={() => setIsNavbarCollapsed(true)}>
                     EPDM Granules
                   </Link>
                 </li>
                 <li>
-                  <Link className="dropdown-item" to="/TyreWire" onClick={() => setIsNavbarCollapsed(true)}>
+                  <Link className="dropdown-item" to="/tyrewire" onClick={() => setIsNavbarCollapsed(true)}>
                     Tyre Wire
                   </Link>
                 </li>
               </ul>
             </li>
             <li className="nav-item mx-2">
-              <Link className="nav-link nav-hover" to="/EnquiryForm" onClick={() => setIsNavbarCollapsed(true)}>
+              <Link className="nav-link nav-hover" to="/enquiryform" onClick={() => setIsNavbarCollapsed(true)}>
                 Enquiry
               </Link>
             </li>
             <li className="nav-item mx-2">
-              <Link className="nav-link nav-hover" to="/ContactUs" onClick={() => setIsNavbarCollapsed(true)}>
+              <Link className="nav-link nav-hover" to="/contactus" onClick={() => setIsNavbarCollapsed(true)}>
                 Contact Us
               </Link>
             </li>

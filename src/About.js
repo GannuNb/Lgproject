@@ -1,36 +1,93 @@
 import React from 'react';
+import { Helmet } from "react-helmet";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './About.css'; // Import the CSS file
+import './About.css';
+
 import abtimg from './images/inn.jpg';
-import abtimg1 from './images/inn1.webp'
+import abtimg1 from './images/inn1.webp';
 
 const About = () => {
   return (
     <div className="about-container">
-    
- 
-    <img 
-  src={abtimg1} 
-  alt="Company products" 
-  className="img-fluid abtimg" 
-  
-/>
+
+      {/* SEO META TAGS */}
+      <Helmet>
+
+        <title>
+          About Lakshmi Ganapathi Industries | Rubber Crumb & Granules Manufacturer
+        </title>
+
+        <meta
+          name="description"
+          content="Lakshmi Ganapathi Industries is a leading manufacturer of crumb rubber and rubber granules located in Kodad, Telangana, India. Supplying high quality rubber recycling products for automotive, conveyor belts and industrial applications."
+        />
+
+        <meta
+          name="keywords"
+          content="Lakshmi Ganapathi Industries, crumb rubber manufacturer India, rubber granules manufacturer Telangana, tyre recycling company India, rubber recycling products"
+        />
+
+        <meta name="robots" content="index, follow" />
+
+        {/* Open Graph for social sharing */}
+        <meta property="og:title" content="Lakshmi Ganapathi Industries - Rubber Recycling Manufacturer" />
+        <meta
+          property="og:description"
+          content="Manufacturer of crumb rubber and rubber granules for automotive, industrial and conveyor belt applications."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={abtimg1} />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://lgindustry.in/about" />
+
+      </Helmet>
 
 
+      {/* HERO IMAGE */}
+      <img
+        src={abtimg1}
+        alt="Lakshmi Ganapathi Industries rubber recycling plant"
+        className="img-fluid abtimg"
+      />
 
-    
+
+      {/* ABOUT CONTENT */}
       <section className="about-content">
-        <h2 className='products-heading'>About Us</h2>
+
+        <h1 className="products-heading">About Lakshmi Ganapathi Industries</h1>
+
         <p>
-          Lakshmi Ganapathi  Industries located in Kodad, Telangana, India, is a renowned name among Rubber Industries. At Lakshmi Ganapathi  Industries, consistent quality of Rubber Crumb and Rubber Granules at various grates of Factice are manufactured compliant with all requirements of relevant national standards and tested as per prevalent internationally accepted test methods.
+          Lakshmi Ganapathi Industries, located in Kodad, Telangana, India,
+          is a recognized manufacturer in the rubber recycling industry.
+          The company produces high-quality crumb rubber and rubber granules
+          used in a wide range of industrial and commercial applications.
         </p>
+
         <p>
-          During these years of journey, Lakshmi Ganapathi  Industries has recorded continuous growth and has served its customers delightfully with quality of product as well as services for wide range of product applications such as Automotive & OTR tyres, Conveyor belts, Moulded & Extruded Rubber products on PAN India as well as global arena.
+          At Lakshmi Ganapathi Industries, consistent quality of rubber crumb
+          and rubber granules at various grades are manufactured in compliance
+          with relevant national standards and tested according to
+          internationally accepted quality testing methods.
         </p>
+
         <p>
-          The company operates its processes complying with the requirements of Quality Management System, Environment Management System and Health and Safety Management System.
+          Over the years, the company has achieved continuous growth and
+          has served customers across India and global markets. Its products
+          are widely used in applications such as automotive and OTR tyres,
+          conveyor belts, moulded rubber components, and extruded rubber
+          products.
         </p>
+
+        <p>
+          The organization operates with strong adherence to quality,
+          environmental responsibility, and safety standards through
+          structured management systems including Quality Management,
+          Environmental Management, and Health & Safety Management systems.
+        </p>
+
       </section>
+
     </div>
   );
 };

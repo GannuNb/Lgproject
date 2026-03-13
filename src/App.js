@@ -18,13 +18,13 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/CrumRubber" element={<CrumRubber />} />
-        <Route path="/EnquiryForm" element={<EnquiryForm />} />
-        <Route path="/ContactUs" element={<ContactUs />} />
-        <Route path="/Epdm" element={<Epdm />} />
-        <Route path="/TyreWire" element={<TyreWire />} />
-        <Route path="/Home" element={<Home />} />
-        <Route path="/Navbar" element={<Navbar />} />
+        <Route path="/crumrubber" element={<CrumRubber />} />
+        <Route path="/enquiryform" element={<EnquiryForm />} />
+        <Route path="/contactus" element={<ContactUs />} />
+        <Route path="/epdm" element={<Epdm />} />
+        <Route path="/tyrewire" element={<TyreWire />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/navbar" element={<Navbar />} />
       </Routes>
       <Footer />
     </Router>

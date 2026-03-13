@@ -25,9 +25,6 @@ const Footer = () => {
                 <Link to="/about" className="text-white text-decoration-none hover-text-primary">About Us</Link>
               </li>
               <li className="mb-2">
-                <Link to="/products" className="text-white text-decoration-none hover-text-primary">Our Products</Link>
-              </li>
-              <li className="mb-2">
                 <Link to="/enquiryform" className="text-white text-decoration-none hover-text-primary">Enquiry</Link>
               </li>
               <li className="mb-2">

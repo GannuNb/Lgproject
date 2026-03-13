@@ -9,3 +9,14 @@
     }
     
   }
+
+  .tyre-list{
+  max-width:500px;
+  margin:0 auto;
+  text-align:left;
+  padding-left:20px;
+}
+
+.tyre-list li{
+  margin-bottom:8px;
+}
